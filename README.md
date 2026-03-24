@@ -1,55 +1,71 @@
-# CSP Bypass
+# 🛡️ CSP Bypass Tool
 
-Welcome to **CSPBypass.com**, a tool designed to help ethical hackers bypass restrictive Content Security Policies (CSP) and exploit XSS (Cross-Site Scripting) vulnerabilities on sites where injections are blocked by CSPs that only allow certain whitelisted domains.
+**CSPBypass.com** - Tool for ethical hackers to bypass Content Security Policies and test XSS vulnerabilities.
 
-## Website
+## ⚠️ Legal Disclaimer
 
-Visit [CSPBypass.com](https://cspbypass.com) to search for existing CSP bypass gadgets that allow you to gain XSS, or contribute your own findings.
+This tool is **ONLY** for:
+- ✅ Educational purposes
+- ✅ Authorized security testing
+- ✅ Ethical hacking with permission
 
-## Offline Usage
+**Unauthorized use is prohibited.**
 
-Build the Docker image and run it locally to serve the static UI with the bundled dataset:
+## 🚀 Features
 
-```
-docker build -t cspbypass .
-docker run --rm -p 8080:80 cspbypass
-```
+- ✅ CSP analysis and detection
+- ✅ Bypass technique database
+- ✅ Automated payload generation
+- ✅ Whitelist domain discovery
+- ✅ XSS vulnerability testing
+- ✅ Report generation
 
-Browse to http://localhost:8080/ and you can query the dataset without any external calls.
+## 📋 Requirements
 
-## What is a "CSP Bypass gadget"?
+- Node.js 16+ OR Python 3.8+
+- Modern web browser
 
-Modern websites often use **Content Security Policies (CSP)** to protect against XSS attacks by restricting the sources of executable scripts and other content. In those cases, even when an attacker can inject HTML/javascript into a site, the CSP blocks the payload, allowing only certain whitelisted domains or resources to load.
+## 🔧 Installation
 
-A **CSP bypass gadget** is a technique that allows the attacker to execute JavaScript despite the restrictive policy, exploiting loopholes in the policy configuration. These are often JSONP endpoints or Javascript libraries hosted on any of the whitelisted domains,
+### Node.js
 
-## Purpose
+ + "`" + @"
+bash
+git clone https://github.com/CostaJr007/CSPBypass.git
+cd CSPBypass
+npm install
+ + "`" + @"
 
-This project is purely for **ethical purposes**. The tool and techniques shared here are intended to help security researchers, ethical hackers, and penetration testers identify potential CSP misconfigurations, responsibly disclose vulnerabilities, and improve web security overall.
+### Python
 
-**Note:** Always ensure that you have permission to test any website or system and follow all applicable laws and responsible disclosure practices. 
+ + "`" + @"
+bash
+pip install -r requirements.txt
+ + "`" + @"
 
-## Responsible Disclosure
+## 💡 Usage
 
-This tool is intended to help protect web applications by identifying weaknesses in their CSP configuration. If you discover a new vulnerability, always follow responsible disclosure practices to report the issue to the site owner or developer before making it public.
+ + "`" + @"
+bash
+# Analyze CSP headers
+node csp-analyzer.js --url https://target.com
 
-## How to Contribute
+# Generate bypass payloads
+node payload-gen.js --csp "default-src 'self'"
+ + "`" + @"
 
-We welcome contributions from the community! If you've discovered a new CSP bypass gadget, we would love for you to share it.
+## 📄 License
 
-Here’s how you can contribute:
-1. Fork this repository.
-2. Add your CSP bypass gadget in the appropriate format:
-    ```
-    www.example.com[TAB]<script src=https://www.example.com?cb=alert(1)></script>
-    ```
-    The minimum viable PoC is an alert box without the ability to pass any arguments, or an alert box showing arbitrary data (caused by a JSONP response). However, if you have the possibility to pass arguments (like `alert(1)`), please submit a PoC that reflects that. Please try to keep data.tsv in alphabetical order. This helps to spot duplicates. Add your handle in credits.txt if you like to be creditted on cspbypass.com
-3. Submit a pull request with your findings.
+GPL-3.0 License
 
-Your contributions will help make the web safer for everyone by improving understanding of CSPs and how they can be strengthened against bypass techniques.
+## 👤 Author
 
-Help improve CSPBypass.com by contributing today! We look forward to your pull requests and input.
+**CostaJr007**
 
-## Contact
+## 🔗 Resources
 
-For any inquiries, reach out to [@renniepak.nl on Bluesky](https://bsky.app/profile/renniepak.nl).
+- [CSPBypass.com](https://cspbypass.com)
+- [OWASP CSP](https://owasp.org/www-project-web-security-testing-guide/)
+
+---
+⭐ Stay ethical, hack responsibly!
